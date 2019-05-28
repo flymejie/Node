@@ -175,7 +175,7 @@ arr[index]
 remove() arr.remove(元素) 必须知道元素名称
 del 是一个语句  del arr[1]
 pop() arr.pop(index)
-
+.clear()  清空
 ```
 
 ### 列表分片
@@ -337,7 +337,139 @@ f 定点数 与浮点数类似 都是小数  {1} 打印 ＧＢ
 | \0       | 表示一个空字符       |
 | \\       | 反斜杠               |
 
- 
+
+
+## 列表 list
+
+```python
+# __author__: flyme
+# data: 2019/2/20
+
+a = ["a", "b", "c", "d", "e", "f", "g", "h"]
+
+# print(a[3])
+# 增删改查
+# 增   切片
+# print(a[1:4])  # 取1-4中间值 ['b', 'c', 'd']
+# print(a[1:])  # 取 1-最后 ['b', 'c', 'd', 'e', 'f', 'g', 'h']
+# print(a[1:-1])  # -1['b', 'c', 'd', 'e', 'f', 'g']
+# print(a[1:-1:1])  # 1:-1:1 1 从左到右一个一个取
+# print(a[1:-1:2])  # 1:-1:2 2 从左到右2个2个取
+# print(a[2::-1])  # ['c', 'b', 'a']
+# print(a[4::-2])  # ['e', 'c', 'a']
+
+# 添加
+# a.append("12") # 默认插到最后一位
+# print(a) #['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', '12']
+
+# a.insert(2,"21") # 插到指定位置
+# print(a)
+
+# 修改
+# a[1] = "123"
+# print(a) #['a', '123', 'c', 'd', 'e', 'f', 'g', 'h']
+# a[1:3] = ["14","15"]
+# print(a) #['a', '14', '15', 'd', 'e', 'f', 'g', 'h']
+# a[1:4] = ["14","15","16"]
+# print(a) #['a', '14', '15', '16', 'e', 'f', 'g', 'h']
+
+# 删除 remove  pop del
+# a.remove("a") #根据元素删除
+# print(a)  # ['b', 'c', 'd', 'e', 'f', 'g', 'h']
+# b = a.remove("a") # 没法取值
+# print(b)  # None
+# a.pop(1)
+# print(a) #['a', 'c', 'd', 'e', 'f', 'g', 'h']
+# b = a.pop(1) # 获取删除掉的值
+# print(b)
+# del a[1]
+# print(a) # ['a', 'c', 'd', 'e', 'f', 'g', 'h']
+# del a # 删除整个对象
+# print(a)
+
+# count 统计某个元素在列表中出现的次数
+t = ['to','be','not','to','be']
+#print(t.count('to'))
+
+# extend()  给一个列表添加另一个列表
+b = [1,2,3]
+c = [4,5,6]
+b.extend(c)
+#print(b,c) #[1, 2, 3, 4, 5, 6] [4, 5, 6]
+
+# index()  下标索引
+#print(a.index("d")) # 3
+
+d = ["a", "b", "c", "d", "e", "c","f", "g", "h"]
+# 强制获取第二个c
+c_index = d.index("c")
+c_index_sm = d[c_index+1:].index("c")
+c_index_big = c_index + c_index_sm + 1
+print(c_index_big)
+
+# reverse()  反转
+d.reverse()
+print(d)
+
+# sort 排序  字母按ASIC 编码
+num = [2,5,4,8,6,14,9]
+num.sort(reverse=True) #reverse=True : 从大到小排序  == num.reverse()
+print(num)
+```
+
+**总结**
+
+### 列表 元组 增删改查
+
+**切片**
+
+```
+.count() 查某个元素的出现次数
+.index() 根据内容找其对应位置
+
+```
+
+**增加**
+
+```python
+.append()  增加一个元素 默认最后位置添加
+.insert(index,"内容") 在index位置插入内容  
+.extend() 扩展列表
+```
+
+**修改**
+
+```python
+a[index] = "新的值"
+a[start:end] = [a,b,c]
+```
+
+**删除**
+
+```python	
+.remove("value") 
+.pop(index) 根据index删除元素
+.pop()  不指定index 删除最后一个
+.del('value')
+del() 全部删除
+.clear()  清空
+```
+
+**排序**
+
+```python
+sort() 排序 默认从小到大
+sort(reverse=True) 从大到小 
+.reverse()
+```
+
+**身份判断**
+
+```python
+type(a) is list
+```
+
+
 
 
 

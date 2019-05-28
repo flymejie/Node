@@ -303,3 +303,152 @@ PI = 3.14159265359
 ```
 
 无论整数做`//`除法还是取余数，结果永远是整数，所以，整数运算结果永远是精确的。
+
+## 字典
+
+**字典是python中的唯一的映射类型，采用键值对（key-value）的形式储存数据**
+
+```python	
+dic={'name':'jie','age':26,"hobby":'girl','sex':'boy'}
+print(dic)
+print(dic['name'])  取值
+key: 不可变
+value: 任何数据类型
+```
+
+**增加**
+
+```python
+dic={'name':'jie'}
+dic['age'] = 25  # 没有age就添加，有就修改
+
+# 键存在，不改动，返回字典中相对应的值
+dic.setdefault('age',33)
+
+# 键不存在，在字典中增加新的键值对，并返回相应的值
+dic.setdefault('age','hobby')
+```
+
+**查**
+
+```python
+dic={'name':'jie','age':26,"hobby":'girl','sex':'boy'}
+
+通过键取查找
+dic.keys() # 查找键 
+print(dic.keys()) #dict_keys(['name', 'age', 'hobby', 'sex'])
+print(list(dic.keys())) #['name', 'age', 'hobby', 'sex']
+print(dic.values()) #dict_values(['jie', 26, 'girl', 'boy'])
+print(list(dic.values())) # ['jie', 26, 'girl', 'boy']
+print(list(dic.items())) #[('name', 'jie'), ('age', 26), ('hobby', 'girl'), ('sex', 'boy')]
+
+```
+
+
+
+**改**
+
+```python
+dic['name']='jie'
+
+#将dic1添加到dic中  存在相同的键，值覆盖
+dic.update(dic1)
+```
+
+**删**
+
+```python
+dic={'name':'jie','age':26,"hobby":'girl','sex':'boy'}
+del dic['name'] #删掉name 键值对
+dic.clear() #清空字典 
+dic.pop('age') #存在返回值   26
+dic.popitem()  # 随机删除一对并返回值
+```
+
+**其它操作涉及到的方法**
+
+```python
+
+dic1 = dic.fromkeys(['a'],'test')
+print(dic1,dic)
+# {'a': 'test'} {'name': 'jie', 'age': 26, 'hobby': 'girl', 'sex': 'boy'}
+```
+
+**字典的排序**
+
+```python
+sorted( dic) 按照键排序
+sorted(dic.item)
+sorted(dic.values)
+```
+
+
+
+## python 文件操作
+
+**能调用方法的一定是对象**
+
+```python
+# Python 对文件进行操作 打开 操作 关闭
+# 操作文件： 首先建立文件对象
+#  open() 创建文件打开
+# read()  读文件
+# close()  关闭
+# 读模式只能读写模式只能写
+# write() 写入
+
+实例：
+# 读模式 read模式
+f = open('txt/test.txt','r',encoding='utf8').read()
+w.close()
+print (f)
+
+# 写入 write模式 
+w = open('file1.txt', 'w', encoding='utf8')
+w.write('hello world')
+w.close()
+print (w)
+
+# 追加内容  append模式
+a = open('txt/test.txt','a',encoding='utf8')
+a.write('\nthis is hello world')
+a.close()
+```
+
+```python
+# 打开文件的优化方法
+
+f = open('txt/test.txt', 'r', encoding='utf8')
+
+for i in f:  # 这是for内部将对象做成一个迭代器，用一行取一行，读取文件的最优方法
+    print (i.strip())
+    
+f.tell()  光标的位置 中文字符一个字为三个字符
+f.seek()  调整光标位置的方法
+```
+
+
+
+## 深浅拷贝
+
+```py
+a = [1, 2, 3, 74, 5]
+b = a.copy()  # 浅拷贝
+
+c = a
+print(b)
+b[0] = 222
+c[1] = 1111
+
+print(b)
+print(a)
+print(c)
+
+# 深拷贝
+import copy
+bb = copy.deepcopy(a)
+```
+
+## 集合 set
+
+  集合（set）是一个无序的不重复元素序列。
