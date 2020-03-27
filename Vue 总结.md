@@ -126,7 +126,17 @@ Vue.component('shuandan',{
 
 ```
 
-## 过滤器 currency
+```
+1. 子传父$emit    父传子props
+2. $listeners       $attrs
+
+```
+
+
+
+
+
+## 过滤器 filter
 
 ```javascript
 Vue.filter('currency',function(val,unit){

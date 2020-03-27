@@ -32,7 +32,7 @@ __dirname  当前文件目录
 
 ## Nodejs运行
 	cmd 	node 文件名	
-
+	
 	res.end();
 	res.send(): 等同于end + writeHead 设置头信息
 
